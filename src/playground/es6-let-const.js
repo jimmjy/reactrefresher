@@ -1,14 +1,12 @@
-'use strict';
-
 var nameVar = 'James';
 var nameVar = 'Mike';
 console.log('nameVar', nameVar);
 
-var nameLet = 'Jen';
+let nameLet = 'Jen';
 nameLet = 'Julie';
 console.log(nameLet);
 
-var nameConst = 'Frank';
+const nameConst = 'Frank';
 console.log('nameConst', nameConst);
 
 function getPetName() {
@@ -18,8 +16,8 @@ function getPetName() {
 
 // Block scoping
 
-var fullName = 'James Finkelstein';
-var firstName = void 0;
+const fullName = 'James Finkelstein';
+let firstName;
 
 if (fullName) {
     firstName = fullName.split(' ')[0];
