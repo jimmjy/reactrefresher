@@ -18,8 +18,6 @@ const user = {
 
 console.log(user.printPlacesLived());
 
-// challenge
-
 const multiplier = {
     number: [1, 5, 9],
     multiplyBy: 4,
