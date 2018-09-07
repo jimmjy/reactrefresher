@@ -1,42 +1,86 @@
 'use strict';
 
-// arguments object - no longer bound with arrow functions
-var add = function add(a, b) {
-    // console.log(arguments);
-    return a + b;
+//JSX - JavaScript XML
+// Babel compiled code
+
+// going to be using if statements
+// terniary
+// logical operators
+
+var app = {
+    title: 'Indecision App',
+    subtitle: 'Put your life in the hands of a computer',
+    options: ['On', 'Two']
 };
 
-console.log(add(55, 1));
-
-// this keyword - no longer bound
+var template = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        app.title
+    ),
+    app.subtitle && React.createElement(
+        'p',
+        null,
+        app.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? 'Here are your options' : 'No options'
+    ),
+    React.createElement(
+        'ol',
+        null,
+        React.createElement(
+            'li',
+            null,
+            'Item One'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'Item two'
+        )
+    )
+);
 
 var user = {
     name: 'James',
-    cities: ['Toronto', 'Montreal', 'New York'],
-    printPlacesLived: function printPlacesLived() {
-        var _this = this;
+    age: 27,
+    location: 'Toronto'
+};
 
-        return this.cities.map(function (city) {
-            return _this.name + ' has lived in ' + city;
-        });
+function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            'p',
+            null,
+            'Location: ',
+            location
+        );
     }
 };
 
-console.log(user.printPlacesLived());
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        user.name ? user.name : 'Anonymous'
+    ),
+    user.age && user.age >= 18 && React.createElement(
+        'p',
+        null,
+        'Age: ',
+        user.age
+    ),
+    getLocation(user.location)
+);
 
-// challenge
+var appRoot = document.getElementById('app');
 
-var multiplier = {
-    number: [1, 5, 9],
-    multiplyBy: 4,
-    // es6 method definition
-    multiply: function multiply() {
-        var _this2 = this;
-
-        return this.number.map(function (num) {
-            return num * _this2.multiplyBy;
-        });
-    }
-};
-
-console.log(multiplier.multiply());
+ReactDOM.render(template, appRoot);
