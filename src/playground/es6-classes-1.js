@@ -6,7 +6,7 @@ class Person {
 
     getGreeting() {
         //return 'Hi!, I am ' + this.name + '!';
-        return `Hi!, I am ${this.name} !`;
+        return `Hi!, I am ${this.name}!`;
     };
 
     getDescription() {
@@ -37,6 +37,23 @@ class Student extends Person {
     };
 };
 
+class Traveler extends Person {
+    constructor (name, age, homeLocation) {
+        super(name, age);
+        this.homeLocation = homeLocation;
+    };
+
+    getGreeting() {
+        let greeting = super.getGreeting();
+
+        if (this.homeLocation) {
+            greeting += ` I'm visiting from ${this.homeLocation}`;
+        }
+
+        return greeting;
+    };
+};
+
 const me = new Student('James Finkelstein', 30, 'Computer Science');
 console.log(me);
 console.log(me.hasMajor());
@@ -46,3 +63,7 @@ const other = new Student();
 console.log(other);
 console.log(other.hasMajor());
 console.log(other.getDescription());
+
+//traveller test
+const trav = new Traveler('James Finkelstein', 30, 'Toronto');
+console.log(trav.getGreeting());
