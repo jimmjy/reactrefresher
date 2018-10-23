@@ -1,7 +1,6 @@
 {
-  "name": "indecision-app",
+  "name": "ls",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +15,10 @@
     "url": "https://github.com/jimmjy/reactrefresher/issues"
   },
   "homepage": "https://github.com/jimmjy/reactrefresher#readme",
-  "dependencies": {
+  "dependencies": {},
+  "description": "",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1"
   }
