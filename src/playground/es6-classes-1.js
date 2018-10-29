@@ -1,6 +1,6 @@
 //class
 class Person {
-    constructor(name = 'John Doe', age = 0) {
+    constructor(name = 'Anonymous', age = 0) {
         this.name = name; 
         this.age = age;
     };
@@ -10,7 +10,7 @@ class Person {
     };
 
     getDescription() {
-        return `${this.name} is ${this.age} year(s) old`;
+        return `${this.name} is ${this.age} year(s) old.`;
     };
 };
 
@@ -20,12 +20,55 @@ class Person {
 //     this.age = age;
 // }
 
-// const you = new person('john', 25);
 
-const me = new Person('James Fink', 30);
+class Student extends Person { 
+    constructor(name, age, major) {
+        super(name, age);
+        this.major = major;
+    };
+
+    hasMajor() {
+        return !!this.major;
+    };
+
+    getDescription() {
+        let description = super.getDescription();
+
+        //like this logic, just changes it if they have the major
+        if (this.hasMajor()) {
+            description += ` Their major is ${this.major}.`;
+        };
+        
+        return description;
+    };
+};
+
+class Traveler extends Person {
+    constructor(name, age, homeLocation) {
+        super(name, age);
+        this.homeLocation = homeLocation;
+    };
+
+    hasHomeLocation () {
+        return !!this.homeLocation;
+    };
+
+    getGreeting() {
+        let greeting = super.getGreeting();
+
+        if (this.hasHomeLocation()) {
+            greeting += ` I'm visiting from ${this.homeLocation
+            }`;
+
+            return greeting;
+        };
+
+        return greeting;
+    }
+};
+
+const me = new Traveler('James Fink', 30, 'Toronto');
 console.log(me.getGreeting());
-console.log(me.getDescription());
 
-const other = new Person();
+const other = new Traveler();
 console.log(other.getGreeting());
-console.log(other.getDescription());
