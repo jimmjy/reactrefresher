@@ -1,39 +1,42 @@
-//converted build it to react method
-class VisibilityToggle extends React.Component {
+class Visibility extends React.Component {
     constructor(props) {
-        super (props);
+        super(props);
         this.state = {
-            toggle: false,
-            hide: 'Hide Details',
-            show: 'Show Details',
-            title: 'Hey! these are some details you can now see!!!!'
+            title: 'Hey! these are some details you can now see!!!',
+            toggle: false
         };
         this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
     };
 
-    //class methods
-    handleToggleVisibility() {
-        const newToggle = !this.state.toggle;
-        this.setState(() => {
+    handleToggleVisibility (e) {
+        e.preventDefault();
+        this.setState((prevState) => {
             return {
-                toggle: newToggle
+                toggle: !prevState.toggle
             }
         });
-    };
-    render () {
+    }
+
+
+    render() {
+
+        let buttonText = this.state.toggle ? 'Hide Details' : 'Show Details';
+
         return (
             <div>
                 <h1>Visibility Toggle</h1>
-                <button onClick={this.handleToggleVisibility}>{this.state.toggle ? this.state.hide : this.state.show}</button>
+                <button onClick={this.handleToggleVisibility}>{buttonText}</button>
                 <p>{this.state.toggle && this.state.title}</p>
             </div>
         );
     };
 };
 
-ReactDOM.render(<VisibilityToggle />, document.getElementById('app'));
+ReactDOM.render(<Visibility />, document.getElementById('app'));
 
-// Old JSX way
+
+
+// // Old JSX way
 // const details = {
 //     title: 'Hey! these are some details you can now see!!!',
 //     toggle: false
