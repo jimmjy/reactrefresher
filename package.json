@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "live-server public/",
+    "build": "webpack --watch",
+    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
   },
   "repository": {
     "type": "git",
@@ -15,11 +17,15 @@
     "url": "https://github.com/jimmjy/reactrefresher/issues"
   },
   "homepage": "https://github.com/jimmjy/reactrefresher#readme",
-  "dependencies": {},
+  "dependencies": {
+    "live-server": "^1.2.0",
+    "webpack": "^4.23.1"
+  },
   "description": "",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "webpack-cli": "^3.1.2"
   }
 }
