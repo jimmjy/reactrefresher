@@ -10,8 +10,7 @@ class IndecisionApp extends React.Component {
         options: [],
         title: 'Indecision',
         subTitle: 'Put your life in the hands of a computer',
-        selectedOption: undefined,
-        userChoice: ''
+        selectedOption: undefined
     }
 
     componentDidMount() {
@@ -84,14 +83,16 @@ class IndecisionApp extends React.Component {
                         hasOption={this.state.options.length > 0}
                         handlePick={this.handlePick}
                     />
-                    <Options
-                        options={this.state.options}
-                        removeAll={this.handleDeleteOptions}
-                        handleDeleteOption={this.handleDeleteOption}
-                    />
-                    <AddOption
-                        handleAddOption={this.handleAddOption}
-                    />
+                    <div className='widget'>
+                        <Options
+                            options={this.state.options}
+                            removeAll={this.handleDeleteOptions}
+                            handleDeleteOption={this.handleDeleteOption}
+                        />
+                        <AddOption
+                            handleAddOption={this.handleAddOption}
+                        />
+                    </div>
                 </div>
                 <OptionModal 
                     selectedOption={this.state.selectedOption} 

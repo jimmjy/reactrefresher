@@ -10,3 +10,15 @@ body {
     font-size: $s-size;
     background: $dark-blue;
 }
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+}
+
+button:focus {
+    outline: 0;
+}
